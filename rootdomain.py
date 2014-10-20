@@ -26,7 +26,6 @@ class Domain:
                 value = value.encode("utf-8", "replace")
         return value
 
-
     def url_format(self, url):
         """
         return http(s)://www.example.com
@@ -41,6 +40,7 @@ class Domain:
         url = url.replace("https://", "")
         url = url.replace("http://", "")
         domain = url[:url.index("/")+1] if "/" in url else url
+        return domain
 
     def get_root_domain(self, url):
         domain = self.get_domain(url)
