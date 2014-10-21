@@ -28,7 +28,7 @@ setup(
     author_email='f00y1n9@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    install_requires=get_reqs(),
+    install_requires=[],
     test_suite='nose.collector',
 )
 
