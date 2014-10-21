@@ -11,21 +11,6 @@ from suffixs import SUFFIXS
 
 class Domain:
 
-    def __unicode(self, value, code="gbk"):
-        try:
-            value = value.decode(code, "ignore")
-        except:
-            pass
-        return value
-
-    def __encode(self, value, code="utf-8"):
-        if isinstance(value, unicode):
-            try:
-                value = value.encode(code)
-            except UnicodeEncodeError:
-                value = value.encode("utf-8", "replace")
-        return value
-
     def url_format(self, url):
         """
         return http(s)://www.example.com
@@ -47,17 +32,17 @@ class Domain:
         domain_blocks = domain.split(".")
         index = -2
         suffix = ".".join(domain_blocks[index:])
-        ifmatch = False
+        if_match = False
         if suffix in SUFFIXS:
             index -= 1
-            ifmatch = True
+            if_match = True
         else:
             index += 1
             suffix = ".".join(domain_blocks[index:])
             if suffix in SUFFIXS:
                 index -= 1
-                ifmatch = True
+                if_match = True
         root_domain = ""
-        if ifmatch:
+        if if_match:
             root_domain = ".".join(domain_blocks[index:])
         return root_domain
