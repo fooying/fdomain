@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-# Fooying@2014-10-20 16:41:03
+
 """
 收集的所有域名后缀
 """

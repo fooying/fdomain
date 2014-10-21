@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding=utf-8
-# Fooying@2014-10-21 10:39:40
 
 """
 一些通用模块

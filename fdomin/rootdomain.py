@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding=utf-8
-# Fooying@2014-10-20 13:14:39
 
 """
 根域名处理
