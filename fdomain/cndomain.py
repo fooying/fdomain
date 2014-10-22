@@ -27,7 +27,8 @@ class CnDomain:
             ret.append(block)
         return ".".join(ret)
 
-    def if_cn_word(self, word):
+    @classmethod
+    def if_cn_word(cls, word):
         """
         判断是否中文字符
         """
@@ -45,21 +46,23 @@ class CnDomain:
                 break
         return is_cn
 
-    def if_cn_domain(self, domain):
+    @classmethod
+    def if_cn_domain(cls, domain):
         """
         判断是否中文域名
         """
         domain_blocks = domain.split(".")
         if_cn = False
         for block in domain_blocks:
-            if self.if_cn_word(block):
+            if cls.if_cn_word(block):
                 if_cn = True
                 break
         return if_cn
 
-    def format_domain(self, domain, to="en"):
+    @classmethod
+    def format_domain(cls, domain, to="en"):
         if to == "cn":
-            domain = self._cn_domain(domain)
+            domain = cls._cn_domain(domain)
         else:
-            domain = self._en_domain(domain)
+            domain = cls._en_domain(domain)
         return domain

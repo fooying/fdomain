@@ -10,7 +10,8 @@ from suffixs import SUFFIXS
 
 class Domain:
 
-    def url_format(self, url):
+    @classmethod
+    def url_format(cls, url):
         """
         return http(s)://www.example.com
         """
@@ -20,14 +21,16 @@ class Domain:
             url = url[:-1]
         return url
 
-    def get_domain(self, url):
+    @classmethod
+    def get_domain(cls, url):
         url = url.replace("https://", "")
         url = url.replace("http://", "")
         domain = url[:url.index("/")+1] if "/" in url else url
         return domain
 
-    def get_root_domain(self, url):
-        domain = self.get_domain(url)
+    @classmethod
+    def get_root_domain(cls, url):
+        domain = cls.get_domain(url)
         domain_blocks = domain.split(".")
         index = -2
         suffix = ".".join(domain_blocks[index:])
@@ -45,5 +48,3 @@ class Domain:
         if if_match:
             root_domain = ".".join(domain_blocks[index:])
         return root_domain
-
-fd = Domain()
