@@ -45,3 +45,5 @@ class Domain:
         if if_match:
             root_domain = ".".join(domain_blocks[index:])
         return root_domain
+
+fd = Domain()
